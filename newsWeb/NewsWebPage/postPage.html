@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Post Page</title>
+    </head>
+<body>
+        <h1>POST PAGE</h1>
+    <div>
+	<form action="#">
+		<input type="text" id="input">
+		<button  id="postBtn">POST</button>
+	</form>
+	<br>
+</div>
+<div>
+	<form action="#">
+		<input type="text" id="secondInput">
+		<button  id="secondPostBtn">POST</button>
+	</form>	
+</div>
+<br>
+<div>
+	<form action="#">
+		<input type="text" id="thirdInput">
+		<button  id="thirdPostBtn">POST</button>
+	</form>
+</div>
+<br>
+<div>
+	<form action="#">
+		<input type="text" id="fourthInput">
+		<button  id="fourthPostBtn">POST</button>
+	</form>
+</div>
+
+<script type="text/javascript">
+	
+	var postButton = document.getElementById('postBtn');
+	postBtn.onclick = function(){
+		var news = document.getElementById('input').value;
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = function(){
+			if(httpRequest.readyState == XMLHttpRequest.DONE){
+				if(httpRequest.status == 200){
+					console.log("succesful post");
+				}
+			}
+		}
+		httpRequest.open('GET' , './postnews?first=' + news ,true );
+		httpRequest.send();
+	}
+	
+	var secondPostBtn= document.getElementById('secondPostBtn');
+	secondPostBtn.onclick = function(){
+		var news = document.getElementById('secondInput').value;
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = function(){
+			if(httpRequest.readyState == XMLHttpRequest.DONE){
+				if(httpRequest.status == 200){
+					console.log("succesful post");
+				}
+			}
+		}
+		httpRequest.open('GET' , './postnews?second=' + news ,true );
+		httpRequest.send();
+	}
+	
+	var thirdPostBtn= document.getElementById('thirdPostBtn');
+	thirdPostBtn.onclick = function(){
+		var news = document.getElementById('thirdInput').value;
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = function(){
+			if(httpRequest.readyState == XMLHttpRequest.DONE){
+				if(httpRequest.status == 200){
+					console.log("succesful post");
+				}
+			}			
+		}
+		httpRequest.open('GET' , './postnews?third=' + news ,true );
+		httpRequest.send();
+	}
+	var fourthPostBtn= document.getElementById('fourthPostBtn');
+	fourthPostBtn.onclick = function(){
+		var news = document.getElementById('fourthInput').value;
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = function(){
+			if(httpRequest.readyState == XMLHttpRequest.DONE){
+				if(httpRequest.status == 200){
+					console.log("succesful post");
+				}
+			}			
+		}
+		httpRequest.open('GET' , './postnews?fourth=' + news ,true );
+		httpRequest.send();
+	}
+</script>        
+</body>
+    
+</html>
